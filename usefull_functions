@@ -1,0 +1,32 @@
+  /*exit iframe*/
+  (function() {
+    let f = document.getElementsByTagName('iframe');
+    if(f && typeof f['length'] !== 'undefined' && f.length > 0) {
+      console.log('exiting iframe...');
+      document.location.href = f[0]['src'];
+    } else {
+      console.log('no iframe found...');
+    }    
+  })();
+
+
+  /*click on play now*/
+  (function() {
+    let b = document.getElementById('playButton');
+    if(b) b.click();
+  })();
+  
+  
+    /*close challenge banner*/
+  (function() {
+    let challengeBanner = document.querySelectorAll('div[fullscreen="true"] div.container');
+    if(challengeBanner.length == 1) {
+      let closeBtns = challengeBanner[0].getElementsByClassName('close-button');
+      if(closeBtns.length == 1) {
+        closeBtns[0].click();
+      } else {
+        console.log('found '+closeBtns.length+' buttons');
+        console.log(closeBtns);
+      }
+    }
+  })();
